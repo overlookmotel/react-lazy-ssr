@@ -16,7 +16,7 @@
   "dependencies": {},
   "devDependencies": {
     "@overlookmotel/eslint-config": "^3.0.2",
-    "@overlookmotel/eslint-config-jest": "^1.1.1",
+    "@overlookmotel/eslint-config-jest": "^2.0.0",
     "coveralls": "^3.0.4",
     "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
