@@ -39,7 +39,7 @@ describe('1 lazy component', () => {
 		});
 
 		describe('with `async` and `defer` both false', () => {
-			it('renders on server', async () => {
+			it('renders on server', () => {
 				expect(html).toBe(removeSpacing(`
 					<div data-reactroot="">
 						<div>Before suspense</div>
@@ -51,7 +51,7 @@ describe('1 lazy component', () => {
 				`));
 			});
 
-			it('`getScriptFiles()` gets script files for main + lazy', async () => {
+			it('`getScriptFiles()` gets script files for main + lazy', () => {
 				const files = chunkExtractor.getScriptFiles();
 				expect(files).toEqual([
 					'Lazy1.js',
@@ -60,7 +60,7 @@ describe('1 lazy component', () => {
 				]);
 			});
 
-			it('`getScriptUrls()` gets script URLs for main + lazy', async () => {
+			it('`getScriptUrls()` gets script URLs for main + lazy', () => {
 				const urls = chunkExtractor.getScriptUrls();
 				expect(urls).toEqual([
 					'/static/Lazy1.js',
@@ -69,17 +69,17 @@ describe('1 lazy component', () => {
 				]);
 			});
 
-			it('`getRequiredChunks()` gets lazy chunk', async () => {
+			it('`getRequiredChunks()` gets lazy chunk', () => {
 				const urls = chunkExtractor.getRequiredChunks();
 				expect(urls).toEqual(['Lazy1']);
 			});
 
-			it('`getRequiredChunksScript()` gets lazy chunk', async () => {
+			it('`getRequiredChunksScript()` gets lazy chunk', () => {
 				const scriptHtml = chunkExtractor.getRequiredChunksScript();
 				expect(scriptHtml).toBe('<script>window.__REACT_LAZY_SSR_CHUNKS_REQUIRED__ = ["Lazy1"];</script>');
 			});
 
-			it('`getScriptTags()` gets script tags for main + lazy', async () => {
+			it('`getScriptTags()` gets script tags for main + lazy', () => {
 				const scriptsHtml = chunkExtractor.getScriptTags();
 				expect(scriptsHtml).toBe(removeLineStartSpacing(`
 					<script>window.__REACT_LAZY_SSR_CHUNKS_REQUIRED__ = ["Lazy1"];</script>
@@ -118,7 +118,7 @@ describe('1 lazy component', () => {
 		});
 
 		describe('with `async` true', () => {
-			it('`getScriptTags()` gets script tags for main + lazy', async () => {
+			it('`getScriptTags()` gets script tags for main + lazy', () => {
 				const scriptsHtml = chunkExtractor.getScriptTags({async: true});
 				expect(scriptsHtml).toBe(removeLineStartSpacing(`
 					<script>window.__REACT_LAZY_SSR_CHUNKS_REQUIRED__ = ["Lazy1"];
@@ -166,7 +166,7 @@ describe('1 lazy component', () => {
 			html = await renderToStringAsync(app);
 		});
 
-		it('renders fallback on server', async () => {
+		it('renders fallback on server', () => {
 			expect(html).toBe(removeSpacing(`
 				<div data-reactroot="">
 					<div>Before suspense</div>
@@ -176,7 +176,7 @@ describe('1 lazy component', () => {
 			`));
 		});
 
-		it('`getScriptFiles()` gets script files for main only', async () => {
+		it('`getScriptFiles()` gets script files for main only', () => {
 			const files = chunkExtractor.getScriptFiles();
 			expect(files).toEqual([
 				'vendors~main.js',
@@ -184,7 +184,7 @@ describe('1 lazy component', () => {
 			]);
 		});
 
-		it('`getScriptUrls()` gets script URLs for main only', async () => {
+		it('`getScriptUrls()` gets script URLs for main only', () => {
 			const urls = chunkExtractor.getScriptUrls();
 			expect(urls).toEqual([
 				'/static/vendors~main.js',
@@ -192,17 +192,17 @@ describe('1 lazy component', () => {
 			]);
 		});
 
-		it('`getRequiredChunks()` gets no chunks', async () => {
+		it('`getRequiredChunks()` gets no chunks', () => {
 			const urls = chunkExtractor.getRequiredChunks();
 			expect(urls).toEqual([]);
 		});
 
-		it('`getRequiredChunksScript()` returns empty string', async () => {
+		it('`getRequiredChunksScript()` returns empty string', () => {
 			const script = chunkExtractor.getRequiredChunksScript();
 			expect(script).toBe('');
 		});
 
-		it('`getScriptTags()` gets script tags for main only', async () => {
+		it('`getScriptTags()` gets script tags for main only', () => {
 			const scripts = chunkExtractor.getScriptTags();
 			expect(scripts).toBe(removeLineStartSpacing(`
 				<script src="/static/vendors~main.js"></script>
