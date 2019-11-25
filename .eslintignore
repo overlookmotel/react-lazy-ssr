@@ -1,1 +1,7 @@
 !.eslintrc.js
+dist
+lib
+example/build
+test/fixtures/build
+test/fixtures/temp
+node_modules

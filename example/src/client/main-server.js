@@ -1,8 +1,7 @@
 /* --------------------
  * react-lazy-ssr module
+ * Example
+ * Server-side entry point
  * ------------------*/
 
-'use strict';
-
-// Exports
-module.exports = require('./lib/index');
+export {default} from './App.jsx';
