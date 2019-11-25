@@ -23,7 +23,7 @@ require('./support');
 // Tests
 
 describe('1 lazy component', () => {
-	describe('with `ssr: true`', () => {
+	describe('with `noSsr: false`', () => {
 		const fixturePath = getFixturePath('1 lazy ssr'),
 			requireFixture = getRequireFixture(fixturePath);
 
@@ -151,7 +151,7 @@ describe('1 lazy component', () => {
 		});
 	});
 
-	describe('with `ssr: false`', () => {
+	describe('with `noSsr: true`', () => {
 		const fixturePath = getFixturePath('1 lazy no-ssr'),
 			requireFixture = getRequireFixture(fixturePath);
 

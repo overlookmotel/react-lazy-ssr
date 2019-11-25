@@ -8,7 +8,7 @@ import React from 'react';
 import lazy from 'react-lazy-ssr';
 
 // Lazy-loaded components
-const Lazy1 = lazy(() => import('./Lazy1.jsx'), {ssr: false});
+const Lazy1 = lazy(() => import('./Lazy1.jsx'), {noSsr: true});
 
 // Exports
 const {Suspense} = React;
