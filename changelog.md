@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2
+
+Dev:
+
+* Fix ESLint errors [fix]
+
 ## 0.1.1
 
 Tests:
