@@ -1,7 +1,7 @@
 'use strict';
 
 // Modules
-const LazyPlugin = require('../../../babel'); // require('react-lazy-ssr/babel');
+const LazyPlugin = require('react-lazy-ssr/babel');
 
 // Exports
 module.exports = {

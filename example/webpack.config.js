@@ -5,7 +5,7 @@
 // Modules
 const pathJoin = require('path').join,
 	nodeExternals = require('webpack-node-externals'),
-	ReactLazySsrPlugin = require('../webpack'); // require('react-lazy-ssr/webpack');
+	ReactLazySsrPlugin = require('react-lazy-ssr/webpack');
 
 // Exports
 
@@ -39,24 +39,7 @@ function getConfig(target) {
 				}
 			]
 		},
-		// TODO Find better way to do this
-		externals: isNode ? [
-			{
-				'react-lazy-ssr': {
-					commonjs2: pathJoin(__dirname, '../index.js')
-				}
-			},
-			'react',
-			'has-own-prop',
-			nodeExternals()
-		] : undefined,
-		resolve: {
-			alias: {
-				'react-lazy-ssr': pathJoin(
-					__dirname, '../dist', isProduction ? 'lazy.min.js' : 'lazy.js'
-				)
-			}
-		},
+		externals: isNode ? [nodeExternals()] : undefined,
 		output: {
 			path: pathJoin(__dirname, 'build', target),
 			filename: isBrowserProduction ? '[name]-[chunkhash:8].js' : '[name].js',

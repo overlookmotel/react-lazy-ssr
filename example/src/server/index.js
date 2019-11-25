@@ -13,8 +13,7 @@ const pathJoin = require('path').join,
 	express = require('express'),
 	React = require('react'),
 	{renderToStringAsync} = require('react-async-ssr'),
-	// eslint-disable-next-line node/no-unpublished-require
-	{ChunkExtractor} = require('../../../server'); // require('react-lazy-ssr/server');
+	{ChunkExtractor} = require('react-lazy-ssr/server');
 
 // Imports
 const App = require('../../build/node/main').default;
