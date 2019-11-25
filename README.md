@@ -247,7 +247,9 @@ By default, `chunkExtractor.getScriptTags()` will produce `<script>` tags suitab
 It produces something like:
 
 ```html
-<script>window.__REACT_LAZY_SSR_CHUNKS_REQUIRED__ = ["LazyLoaded"];</script>
+<script>
+window.__REACT_LAZY_SSR_CHUNKS_REQUIRED__ = ["LazyLoaded"];
+</script>
 <script src="/static/LazyLoaded.js"></script>
 <script src="/static/vendors~main.js"></script>
 <script src="/static/main.js"></script>
@@ -258,7 +260,7 @@ You may be able to improve loading performance by putting the scripts in the HTM
 Pass either `{async: true}` or `{defer: true}` to `.getScriptTags()`:
 
 ```js
-chunkExtractor.getScriptTags( { async: true} )
+chunkExtractor.getScriptTags( { async: true } )
 ```
 
 This adds an `async` attribute to the `<script>` elements and adds some Javascript to ensure the page is not hydrated until all have loaded.
@@ -266,11 +268,12 @@ This adds an `async` attribute to the `<script>` elements and adds some Javascri
 ```html
 <script>
 window.__REACT_LAZY_SSR_CHUNKS_REQUIRED__ = ["LazyLoaded"];
-window.__REACT_LAZY_SSR_FILES_REQUIRED__ = ["LazyLoaded.js","vendors~main.js","main.js"];
+window.__REACT_LAZY_SSR_FILES_REQUIRED__ =
+  ["LazyLoaded.js","vendors~main.js","main.js"];
 </script>
-<script src="/static/LazyLoaded.js" async onLoad="..."></script>
-<script src="/static/vendors~main.js" async onLoad="..."></script>
-<script src="/static/main.js" async onLoad="..."></script>
+<script async src="/static/LazyLoaded.js" onLoad="..."></script>
+<script async src="/static/vendors~main.js" onLoad="..."></script>
+<script async src="/static/main.js" onLoad="..."></script>
 ```
 
 #### Preload tags
