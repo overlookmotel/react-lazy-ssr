@@ -18,13 +18,7 @@ module.exports = {
 			}
 		},
 		{
-			files: [
-				'index.js',
-				'server.js',
-				'babel.js',
-				'webpack.js',
-				'example/src/server/index.js'
-			],
+			files: ['index.js', 'server.js', 'babel.js', 'webpack.js'],
 			rules: {
 				'import/no-unresolved': ['off'],
 				'node/no-missing-require': ['off']
