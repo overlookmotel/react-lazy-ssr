@@ -123,7 +123,7 @@ In order for the page to hydrate correctly on the client side, all the code whic
 
 This package provides `ChunkExtractor` to do this.
 
-* Require the stats file created by Webpack plugin
+* Import the stats file created by Webpack plugin
 * Wrap the app before rendering in a `ChunkExtractor`.
 * Call `chunkExtractor.getScriptTags()` to get all the `<script>` tags to add at the bottom of the HTML body.
 
@@ -135,7 +135,7 @@ const {renderToStringAsync} = require('react-async-ssr'),
 // Import App
 const App = require('./build/server/main.js');
 
-// Load stats file created by Webpack plugin
+// Import stats file created by Webpack plugin
 const stats = require('./build/client/reactLazySsrStats.json');
 
 // Define route
