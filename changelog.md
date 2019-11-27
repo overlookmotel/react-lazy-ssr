@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.2.0
+
+Breaking changes:
+
+* Require React 16.8.x or 16.9.x
+
+Bug fixes:
+
+* Correct casing of `onload` script attribute
+
+Dependencies:
+
+* Update `react-async-ssr` dependency to 0.6.0
+
+Dev:
+
+* ESLint config correct paths [fix]
+* Travis CI run coverage on Node v12
+* Travis CI run tests on Node v13
+* Update dev dependencies
+
+Example:
+
+* Remove ESLint
+* Example: Remove `main-server.js` file [refactor]
+
 ## 0.1.2
 
 Dev:
