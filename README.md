@@ -55,7 +55,7 @@ const LazyFoo = lazy(
 );
 ```
 
-NB Name must be unique for the resource being loaded, NOT unique for each call to `lazy()`. If different files both want to lazy load the same component, they can (and should) use the same name.
+NB Name must be unique for the component *being loaded*, NOT unique for each call to `lazy()`. If different files both want to lazy load the same component, they can (and should) use the same chunk name.
 
 ##### Babel plugin
 
@@ -73,7 +73,7 @@ module.exports = {
     '@babel/preset-react'
   ],
   plugins: [
-	[ LazyPlugin, { rootPath: __dirname} ]
+    [ LazyPlugin, { rootPath: __dirname} ]
   ]
 };
 ```
@@ -107,7 +107,7 @@ module.exports = {
   target: 'web',
   entry: `./src/client/main.jsx`,
   plugins: [
-	new ReactLazySsrPlugin()
+    new ReactLazySsrPlugin()
   ],
   ...
 }
@@ -123,6 +123,7 @@ In order for the page to hydrate correctly on the client side, all the code whic
 
 This package provides `ChunkExtractor` to do this.
 
+* Require the stats file created by Webpack plugin
 * Wrap the app before rendering in a `ChunkExtractor`.
 * Call `chunkExtractor.getScriptTags()` to get all the `<script>` tags to add at the bottom of the HTML body.
 
@@ -131,10 +132,10 @@ This package provides `ChunkExtractor` to do this.
 const {renderToStringAsync} = require('react-async-ssr'),
   {ChunkExtractor} = require('react-lazy-ssr/server');
 
-// Import App - Webpack's entry chunk
+// Import App
 const App = require('./build/server/main.js');
 
-// Load stats file
+// Load stats file created by Webpack plugin
 const stats = require('./build/client/reactLazySsrStats.json');
 
 // Define route
@@ -182,8 +183,8 @@ import lazy from 'react-lazy-ssr';
 
 lazy.preloadAll().then( () => {
   ReactDOM.hydrate(
-	<App />,
-	document.getElementById('app')
+    <App />,
+    document.getElementById('app')
   );
 } );
 ```
@@ -265,7 +266,7 @@ Pass either `{async: true}` or `{defer: true}` to `.getScriptTags()`:
 chunkExtractor.getScriptTags( { async: true } )
 ```
 
-This adds an `async` attribute to the `<script>` elements and adds some Javascript to ensure the page is not hydrated until all have loaded.
+This adds an `async` attribute to the `<script>` elements and some Javascript to ensure the page is not hydrated until all have loaded.
 
 ```html
 <script>
@@ -307,13 +308,13 @@ const LazyPlugin = require('react-lazy-ssr/babel');
 module.exports = {
   ...
   plugins: [
-	[
+    [
       LazyPlugin,
-	  {
-		rootPath: __dirname,
-		exts: ['js', 'jsx', 'react']
-	  }
-	]
+      {
+        rootPath: __dirname,
+        exts: ['js', 'jsx', 'react']
+      }
+    ]
   ]
 };
 ```
@@ -326,9 +327,9 @@ If you want the stats file to be called something other than `reactLazySsrStats.
 // webpack.config.js
 module.exports = {
   plugins: [
-	new ReactLazySsrPlugin( {
+    new ReactLazySsrPlugin( {
       filename: 'my-alternative-filename.json'
-	} )
+    } )
   ],
   ...
 }
