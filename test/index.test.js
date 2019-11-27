@@ -123,9 +123,9 @@ describe('1 lazy component', () => {
 				expect(scriptsHtml).toBe(removeLineStartSpacing(`
 					<script>window.__REACT_LAZY_SSR_CHUNKS_REQUIRED__ = ["Lazy1"];
 					window.__REACT_LAZY_SSR_FILES_REQUIRED__ = ["Lazy1.js","vendors~main.js","main.js"];</script>
-					<script src="/static/Lazy1.js" async onLoad="(window.__REACT_LAZY_SSR_FILES_READY__ = window.__REACT_LAZY_SSR_FILES_READY__ || []).push('Lazy1.js')"></script>
-					<script src="/static/vendors~main.js" async onLoad="(window.__REACT_LAZY_SSR_FILES_READY__ = window.__REACT_LAZY_SSR_FILES_READY__ || []).push('vendors~main.js')"></script>
-					<script src="/static/main.js" async onLoad="(window.__REACT_LAZY_SSR_FILES_READY__ = window.__REACT_LAZY_SSR_FILES_READY__ || []).push('main.js')"></script>
+					<script src="/static/Lazy1.js" async onload="(window.__REACT_LAZY_SSR_FILES_READY__ = window.__REACT_LAZY_SSR_FILES_READY__ || []).push('Lazy1.js')"></script>
+					<script src="/static/vendors~main.js" async onload="(window.__REACT_LAZY_SSR_FILES_READY__ = window.__REACT_LAZY_SSR_FILES_READY__ || []).push('vendors~main.js')"></script>
+					<script src="/static/main.js" async onload="(window.__REACT_LAZY_SSR_FILES_READY__ = window.__REACT_LAZY_SSR_FILES_READY__ || []).push('main.js')"></script>
 				`));
 			});
 

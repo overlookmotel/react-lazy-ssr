@@ -55,7 +55,7 @@ export class ChunkExtractor {
 		const publicPath = this._publicPath;
 		const scripts = paths.map((path) => {
 			const scriptModifiers = modifiers === '' ? ''
-				: `${modifiers} onLoad="(window.${FILES_READY} = window.${FILES_READY} || []).push(${stringifyString(path)})"`;
+				: `${modifiers} onload="(window.${FILES_READY} = window.${FILES_READY} || []).push(${stringifyString(path)})"`;
 			return `<script src="${publicPath}${path}"${scriptModifiers}></script>`;
 		});
 

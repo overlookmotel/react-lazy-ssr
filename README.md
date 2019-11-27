@@ -271,9 +271,9 @@ window.__REACT_LAZY_SSR_CHUNKS_REQUIRED__ = ["LazyLoaded"];
 window.__REACT_LAZY_SSR_FILES_REQUIRED__ =
   ["LazyLoaded.js","vendors~main.js","main.js"];
 </script>
-<script async src="/static/LazyLoaded.js" onLoad="..."></script>
-<script async src="/static/vendors~main.js" onLoad="..."></script>
-<script async src="/static/main.js" onLoad="..."></script>
+<script async src="/static/LazyLoaded.js" onload="..."></script>
+<script async src="/static/vendors~main.js" onload="..."></script>
+<script async src="/static/main.js" onload="..."></script>
 ```
 
 #### Preload tags
