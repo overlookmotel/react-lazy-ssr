@@ -10,8 +10,8 @@ const pathJoin = require('path').join,
 // Exports
 
 const ENTRY_POINTS = {
-	web: 'main-client.jsx',
-	node: 'main-server.js'
+	web: 'client.jsx',
+	node: 'App.jsx'
 };
 
 const isProduction = process.env.NODE_ENV === 'production';
