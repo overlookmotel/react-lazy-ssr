@@ -102,7 +102,7 @@ describe('1 lazy component', () => {
 				const scriptsHtml = chunkExtractor.getScriptTags();
 
 				const {
-					hydratedHtml, /* consoleOutput, */ loadedFilesPreload, loadedFilesLoad
+					hydratedHtml, consoleOutput, loadedFilesPreload, loadedFilesLoad
 				} = await hydrate({
 					html,
 					footHtml: scriptsHtml,
@@ -110,8 +110,7 @@ describe('1 lazy component', () => {
 				});
 
 				expectHtmlMatch(hydratedHtml, html, 'hydration');
-				// TODO Fix this!
-				// expect(consoleOutput).toEqual([]);
+				expect(consoleOutput).toEqual([]);
 				expect(loadedFilesPreload).toEqual(['Lazy1.js', 'vendors~main.js', 'main.js']);
 				expect(loadedFilesLoad).toEqual([]);
 			});
@@ -133,7 +132,7 @@ describe('1 lazy component', () => {
 				const scriptsHtml = chunkExtractor.getScriptTags({async: true});
 
 				const {
-					hydratedHtml, /* consoleOutput, */ loadedFilesPreload, loadedFilesLoad
+					hydratedHtml, consoleOutput, loadedFilesPreload, loadedFilesLoad
 				} = await hydrate({
 					html,
 					footHtml: scriptsHtml,
@@ -141,8 +140,7 @@ describe('1 lazy component', () => {
 				});
 
 				expectHtmlMatch(hydratedHtml, html, 'hydration');
-				// TODO Fix this!
-				// expect(consoleOutput).toEqual([]);
+				expect(consoleOutput).toEqual([]);
 				expect(loadedFilesPreload).toEqual(['Lazy1.js', 'vendors~main.js', 'main.js']);
 				expect(loadedFilesLoad).toEqual([]);
 			});

@@ -13,6 +13,8 @@
 
 Unlike React's built-in `.lazy()` method, it can be used in server-side rendering with [react-async-ssr](https://www.npmjs.com/package/react-async-ssr).
 
+Requires React 16.8.x or 16.9.x. React 16.10.0+ is not supported at present.
+
 ### Client-side only
 
 Use `react-lazy-ssr` exactly as you would `React.lazy`:
