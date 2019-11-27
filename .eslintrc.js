@@ -9,7 +9,7 @@ module.exports = {
 	},
 	overrides: [
 		{
-			files: ['rollup.config.js', 'src/**'],
+			files: ['./rollup.config.js', './src/**'],
 			parserOptions: {
 				sourceType: 'module'
 			},
@@ -18,7 +18,7 @@ module.exports = {
 			}
 		},
 		{
-			files: ['index.js', 'server.js', 'babel.js', 'webpack.js'],
+			files: ['./index.js', './server.js', './babel.js', './webpack.js'],
 			rules: {
 				'import/no-unresolved': ['off'],
 				'node/no-missing-require': ['off']
