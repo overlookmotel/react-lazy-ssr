@@ -19,7 +19,7 @@ Requires React 16.8.x or 16.9.x. React 16.10.0+ is not supported at present.
 
 Use `react-lazy-ssr` exactly as you would `React.lazy`:
 
-```js
+```jsx
 import React, {Suspense} from 'react';
 import lazy from 'react-lazy-ssr';
 
@@ -127,7 +127,7 @@ This package provides `ChunkExtractor` to do this.
 * Wrap the app before rendering in a `ChunkExtractor`.
 * Call `chunkExtractor.getScriptTags()` to get all the `<script>` tags to add at the bottom of the HTML body.
 
-```js
+```jsx
 // Import packages
 const {renderToStringAsync} = require('react-async-ssr'),
   {ChunkExtractor} = require('react-lazy-ssr/server');
@@ -169,7 +169,7 @@ On the client side, all lazy components must be preloaded before hydrating the a
 
 Instead of:
 
-```js
+```jsx
 ReactDOM.hydrate(
   <App />,
   document.getElementById('app')
@@ -178,7 +178,7 @@ ReactDOM.hydrate(
 
 use:
 
-```js
+```jsx
 import lazy from 'react-lazy-ssr';
 
 lazy.preloadAll().then( () => {
