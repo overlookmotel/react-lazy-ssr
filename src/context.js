@@ -4,7 +4,7 @@
  * ------------------*/
 
 // Modules
-import React from 'react';
+import {createContext} from 'react';
 
 // Exports
-export default React.createContext();
+export default createContext();

@@ -4,7 +4,7 @@
  * ------------------*/
 
 // Modules
-import React from 'react';
+import {createElement} from 'react';
 import {NO_SSR, ON_MOUNT} from 'react-async-ssr/symbols';
 import {isString, isArray} from 'is-it-type';
 
@@ -162,7 +162,7 @@ class Ctx {
 }
 
 export function ChunkExtractorManager(extractor, children) {
-	return React.createElement(
+	return createElement(
 		ServerContext.Provider,
 		{
 			value: new Ctx(extractor)

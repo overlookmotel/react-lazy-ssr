@@ -6,7 +6,7 @@
 /* global window */
 
 // Modules
-import React from 'react';
+import {createElement, useContext} from 'react';
 
 // Imports
 import ServerContext from './context';
@@ -42,7 +42,7 @@ function lazy(loader, options) {
 		// Get state
 		let context, state;
 		if (IS_NODE) {
-			context = React.useContext(ServerContext);
+			context = useContext(ServerContext);
 			if (!context) throw new Error('Must use `ChunkExtractor` on server side');
 			state = context.getState(LazyComponent);
 		} else {
@@ -54,7 +54,7 @@ function lazy(loader, options) {
 		if (status === ERRORED) throw state.data;
 
 		// If already loaded, render component
-		if (status === LOADED) return React.createElement(state.data, props);
+		if (status === LOADED) return createElement(state.data, props);
 
 		// If first time called, load lazy component and record promise
 		if (status === NOT_LOADED) {
