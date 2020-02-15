@@ -164,9 +164,7 @@ class Ctx {
 export function ChunkExtractorManager(extractor, children) {
 	return createElement(
 		ServerContext.Provider,
-		{
-			value: new Ctx(extractor)
-		},
+		{value: new Ctx(extractor)},
 		children
 	);
 }
