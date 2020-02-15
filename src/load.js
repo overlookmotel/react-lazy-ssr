@@ -1,6 +1,6 @@
 /* --------------------
  * react-lazy-ssr module
- * Entry point
+ * `load()` function
  * ------------------*/
 
 // Modules
