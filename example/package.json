@@ -1,4 +1,5 @@
 {
+  "name": "react-lazy-ssr-example",
   "private": true,
   "scripts": {
     "start": "NODE_ENV=development node src/server/index.js",
