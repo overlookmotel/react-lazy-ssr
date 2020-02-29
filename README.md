@@ -303,13 +303,11 @@ You can customize this with the `exts` option.
 
 ```js
 // .babelrc.js
-const LazyPlugin = require('react-lazy-ssr/babel');
-
 module.exports = {
   ...
   plugins: [
     [
-      LazyPlugin,
+      'react-lazy-ssr/babel',
       {
         rootPath: __dirname,
         exts: ['js', 'jsx', 'react']
