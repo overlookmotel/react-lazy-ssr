@@ -1,8 +1,5 @@
 'use strict';
 
-// Modules
-const LazyPlugin = require('react-lazy-ssr/babel');
-
 // Exports
 module.exports = {
 	presets: [
@@ -11,6 +8,6 @@ module.exports = {
 	],
 	plugins: [
 		'@babel/plugin-syntax-dynamic-import',
-		[LazyPlugin, {rootPath: __dirname}]
+		['react-lazy-ssr/babel', {rootPath: __dirname}]
 	]
 };
