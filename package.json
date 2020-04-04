@@ -17,7 +17,7 @@
   "dependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.7.4",
     "has-own-prop": "^2.0.0",
-    "is-it-type": "^1.0.0",
+    "is-it-type": "^3.0.2",
     "lodash": "^4.17.15",
     "react-async-ssr": "^0.6.0"
   },
