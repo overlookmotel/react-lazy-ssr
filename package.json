@@ -15,10 +15,10 @@
     "url": "https://github.com/overlookmotel/react-lazy-ssr/issues"
   },
   "dependencies": {
-    "@babel/plugin-syntax-dynamic-import": "^7.7.4",
-    "is-it-type": "^1.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "is-it-type": "^3.1.1",
     "lodash": "^4.17.15",
-    "react-async-ssr": "^0.6.0"
+    "react-async-ssr": "^0.7.0"
   },
   "peerDependencies": {
     "react": "16.8.0 - 16.9.x"
