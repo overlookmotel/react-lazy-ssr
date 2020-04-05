@@ -3,10 +3,8 @@
  * `load()` function
  * ------------------*/
 
-// Modules
-import hasOwnProperty from 'has-own-prop';
-
 // Imports
+import {hasOwnProperty} from './utils';
 import {LOADING, LOADED, ERRORED} from './constants';
 
 // Exports

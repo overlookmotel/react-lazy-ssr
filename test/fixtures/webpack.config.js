@@ -61,7 +61,6 @@ for (const fixtureName of fixtureNames) {
 				}
 			},
 			'react',
-			'has-own-prop',
 			nodeExternals()
 		],
 		output: {

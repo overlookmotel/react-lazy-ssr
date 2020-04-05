@@ -17,3 +17,8 @@ export function getNoSsrOption(options) {
 
 	return false;
 }
+
+const hasOwnProp = Object.prototype.hasOwnProperty;
+export function hasOwnProperty(obj, prop) {
+	return hasOwnProp.call(obj, prop);
+}
