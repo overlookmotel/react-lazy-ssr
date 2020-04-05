@@ -19,7 +19,7 @@
     "has-own-prop": "^2.0.0",
     "is-it-type": "^1.0.0",
     "lodash": "^4.17.15",
-    "react-async-ssr": "^0.6.0"
+    "react-async-ssr": "^0.7.0"
   },
   "peerDependencies": {
     "react": "16.8.0 - 16.9.x"
