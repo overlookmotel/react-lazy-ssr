@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.2.3
+
+Bug fixes:
+
+* Replace `has-own-prop` dependency with hand-coded version
+
+Refactor:
+
+* Use React named imports
+* Code style
+
+No code:
+
+* Code comments
+
+Dev:
+
+* Fix coveralls script
+
+Docs:
+
+* Simplify Babel plugin example
+* Correctly tag code blocks containing JSX
+
+Example:
+
+* Simplify Babel config
+* Package name in `package.json`
+
 ## 0.2.2
 
 Docs:
