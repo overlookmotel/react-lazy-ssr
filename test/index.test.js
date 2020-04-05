@@ -98,7 +98,7 @@ describe('1 lazy component', () => {
 				`));
 			});
 
-			it('hyrates on client correctly', async () => {
+			it('hydrates on client correctly', async () => {
 				const scriptsHtml = chunkExtractor.getScriptTags();
 
 				const {
@@ -128,7 +128,7 @@ describe('1 lazy component', () => {
 				`));
 			});
 
-			it('hyrates on client correctly', async () => {
+			it('hydrates on client correctly', async () => {
 				const scriptsHtml = chunkExtractor.getScriptTags({async: true});
 
 				const {
