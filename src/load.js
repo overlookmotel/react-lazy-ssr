@@ -4,8 +4,8 @@
  * ------------------*/
 
 // Imports
-import {hasOwnProperty} from './utils';
-import {LOADING, LOADED, ERRORED} from './constants';
+import {hasOwnProperty} from './utils.js';
+import {LOADING, LOADED, ERRORED} from './constants.js';
 
 // Exports
 export default function load(loader, state) {

@@ -11,7 +11,7 @@ import vm from 'vm';
 import syntaxDynamicImport from '@babel/plugin-syntax-dynamic-import';
 
 // Imports
-import {getNoSsrOption} from './utils';
+import {getNoSsrOption} from './utils.js';
 
 // Exports
 

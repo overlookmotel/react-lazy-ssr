@@ -6,7 +6,7 @@
 /* global window */
 
 // Imports
-import {CHUNKS_REQUIRED, CHUNKS_READY, FILES_REQUIRED, FILES_READY} from './constants';
+import {CHUNKS_REQUIRED, CHUNKS_READY, FILES_REQUIRED, FILES_READY} from './constants.js';
 
 // Exports
 

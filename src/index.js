@@ -9,11 +9,11 @@
 import {createElement, useContext} from 'react';
 
 // Imports
-import ServerContext from './context';
-import preloadAll from './preloadAll';
-import load from './load';
-import {isFunction, getNoSsrOption} from './utils';
-import {CHUNKS_READY, NOT_LOADED, LOADED, ERRORED} from './constants';
+import ServerContext from './context.js';
+import preloadAll from './preloadAll.js';
+import load from './load.js';
+import {isFunction, getNoSsrOption} from './utils.js';
+import {CHUNKS_READY, NOT_LOADED, LOADED, ERRORED} from './constants.js';
 
 const IS_NODE = typeof window === 'undefined';
 
