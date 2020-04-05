@@ -1,6 +1,6 @@
 {
   "name": "react-lazy-ssr",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "React.lazy substitute which works with server-side rendering",
   "main": "index.js",
   "browser": "dist/lazy.min.js",
