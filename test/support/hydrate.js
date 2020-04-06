@@ -14,7 +14,7 @@ const pathJoin = require('path').join,
 	fs = require('fs-extra');
 
 // Imports
-const {removeLineStartSpacing, defer} = require('./utils');
+const {removeLineStartSpacing, defer} = require('./utils.js');
 
 // Exports
 

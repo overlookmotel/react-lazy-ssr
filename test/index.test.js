@@ -11,14 +11,14 @@
 const pathJoin = require('path').join,
 	React = require('react'),
 	{renderToStringAsync} = require('react-async-ssr'),
-	{ChunkExtractor} = require('../server'); // require('react-lazy-ssr/server');
+	{ChunkExtractor} = require('../server.js'); // require('react-lazy-ssr/server');
 
 // Imports
-const {removeSpacing, removeLineStartSpacing} = require('./support/utils'),
-	hydrate = require('./support/hydrate');
+const {removeSpacing, removeLineStartSpacing} = require('./support/utils.js'),
+	hydrate = require('./support/hydrate.js');
 
 // Init
-require('./support');
+require('./support/index.js');
 
 // Tests
 

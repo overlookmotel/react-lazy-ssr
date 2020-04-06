@@ -6,4 +6,4 @@
 'use strict';
 
 // Exports
-module.exports = require('./lib/webpack');
+module.exports = require('./lib/webpack.js');

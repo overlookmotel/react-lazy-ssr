@@ -10,8 +10,8 @@
 const fs = require('fs'),
 	pathJoin = require('path').join,
 	nodeExternals = require('webpack-node-externals'),
-	ReactLazySsrWebpackPlugin = require('../../webpack'), // require('react-lazy-ssr/webpack');
-	ReactLazySsrBabelPlugin = require('../../babel'); // require('react-lazy-ssr/babel');
+	ReactLazySsrWebpackPlugin = require('../../webpack.js'), // require('react-lazy-ssr/webpack');
+	ReactLazySsrBabelPlugin = require('../../babel.js'); // require('react-lazy-ssr/babel');
 
 // Exports
 

@@ -16,7 +16,7 @@ const pathJoin = require('path').join,
 	{ChunkExtractor} = require('react-lazy-ssr/server');
 
 // Imports
-const App = require('../../build/node/main').default;
+const App = require('../../build/node/main.js').default;
 
 // Load stats file
 const stats = require('../../build/web/reactLazySsrStats.json');

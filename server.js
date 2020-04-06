@@ -6,4 +6,4 @@
 'use strict';
 
 // Exports
-module.exports = require('./lib/server');
+module.exports = require('./lib/server.js');
