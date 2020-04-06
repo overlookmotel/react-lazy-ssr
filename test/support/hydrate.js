@@ -28,7 +28,7 @@ class ScriptLoader extends ResourceLoader {
 	}
 
 	fetch(url) {
-		const filePath = url.slice(8); // Remove '/static/'
+		const filePath = url.slice(26); // Remove 'http://example.org/static/'
 		this.loadedFiles.push(filePath);
 		return fs.readFile(pathJoin(this.scriptPath, filePath));
 	}
@@ -86,6 +86,7 @@ async function hydrate({html, headHtml, footHtml, scriptPath}) {
 	`);
 
 	const dom = new JSDOM(clientHtml, {
+		url: 'http://example.org/',
 		runScripts: 'dangerously',
 		virtualConsole,
 		resources: scriptLoader,
