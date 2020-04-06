@@ -18,9 +18,8 @@ import {CHUNKS_READY, NOT_LOADED, LOADED, ERRORED} from './constants.js';
 const IS_NODE = typeof window === 'undefined';
 
 // Exports
-export default lazy;
 
-function lazy(loader, options) {
+export default function lazy(loader, options) {
 	// Conform inputs
 	if (!isFunction(loader)) throw new Error('Loader function must be provided');
 

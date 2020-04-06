@@ -4,14 +4,13 @@
  * ------------------*/
 
 // Modules
-import React from 'react';
+import React, {Suspense} from 'react';
 import lazy from 'react-lazy-ssr';
 
 // Lazy-loaded components
 const Lazy1 = lazy(() => import('./Lazy1.jsx'));
 
 // Exports
-const {Suspense} = React;
 
 export default function App() {
 	return (
