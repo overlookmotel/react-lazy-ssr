@@ -1,8 +1,7 @@
 src
-example
-
 test
 coverage
+example
 
 .DS_Store
 .editorconfig
