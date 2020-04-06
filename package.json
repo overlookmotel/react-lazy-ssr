@@ -18,7 +18,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.7.4",
     "is-it-type": "^1.0.0",
     "lodash": "^4.17.15",
-    "react-async-ssr": "^0.6.0"
+    "react-async-ssr": "^0.7.1"
   },
   "peerDependencies": {
     "react": "16.8.0 - 16.9.x"
