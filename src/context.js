@@ -7,4 +7,5 @@
 import {createContext} from 'react';
 
 // Exports
+
 export default createContext();

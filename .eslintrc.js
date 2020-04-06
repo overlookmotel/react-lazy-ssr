@@ -1,4 +1,11 @@
+/* --------------------
+ * react-lazy-ssr module
+ * ESLint config
+ * ------------------*/
+
 'use strict';
+
+// Exports
 
 module.exports = {
 	extends: [

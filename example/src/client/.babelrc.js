@@ -1,6 +1,13 @@
+/* --------------------
+ * react-lazy-ssr module
+ * Example
+ * Babel config
+ * ------------------*/
+
 'use strict';
 
 // Exports
+
 module.exports = {
 	presets: [
 		'@babel/preset-env',

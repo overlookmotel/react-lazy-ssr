@@ -1,3 +1,9 @@
+/* --------------------
+ * react-lazy-ssr module
+ * Example
+ * Webpack config
+ * ------------------*/
+
 /* eslint-disable node/no-unpublished-require */
 
 'use strict';

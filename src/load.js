@@ -8,6 +8,7 @@ import {hasOwnProperty} from './utils.js';
 import {LOADING, LOADED, ERRORED} from './constants.js';
 
 // Exports
+
 export default function load(loader, state) {
 	// Load async
 	state.status = LOADING;

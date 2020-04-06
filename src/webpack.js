@@ -1,6 +1,5 @@
 /* --------------------
  * react-lazy-ssr module
- * `react-lazy-ssr/webpack` entry point
  * Webpack plugin
  * ------------------*/
 
@@ -8,6 +7,7 @@
 import {mapValues} from 'lodash';
 
 // Exports
+
 export default class ReactLazySsrPlugin {
 	constructor(options) {
 		this.filename = (options && options.filename) || 'reactLazySsrStats.json';

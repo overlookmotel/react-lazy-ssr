@@ -1,3 +1,8 @@
+/* --------------------
+ * react-lazy-ssr module
+ * Rollup config
+ * ------------------*/
+
 // Modules
 import nodeResolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';

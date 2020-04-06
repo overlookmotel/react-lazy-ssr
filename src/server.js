@@ -1,6 +1,6 @@
 /* --------------------
  * react-lazy-ssr module
- * `react-lazy-ssr/server` entry point
+ * Server-side rendering tools
  * ------------------*/
 
 // Modules

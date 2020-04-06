@@ -1,6 +1,5 @@
 /* --------------------
  * react-lazy-ssr module
- * `react-lazy-ssr/babel` entry point
  * Babel plugin
  * ------------------*/
 

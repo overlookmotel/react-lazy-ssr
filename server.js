@@ -1,9 +1,10 @@
 /* --------------------
  * react-lazy-ssr module
- * `react-lazy-ssr/server` export
+ * Server entry point
  * ------------------*/
 
 'use strict';
 
 // Exports
+
 module.exports = require('./lib/server.js');

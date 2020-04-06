@@ -12,6 +12,7 @@ import lazy from 'react-lazy-ssr';
 const Hello = lazy(() => import('./Hello.jsx'));
 
 // Exports
+
 export default function App() {
 	return (
 		<div>

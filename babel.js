@@ -1,9 +1,10 @@
 /* --------------------
  * react-lazy-ssr module
- * `react-lazy-ssr/webpack` export
+ * Babel plugin entry point
  * ------------------*/
 
 'use strict';
 
 // Exports
+
 module.exports = require('./lib/babel.js');

@@ -7,6 +7,7 @@
 'use strict';
 
 // Exports
+
 module.exports = {
 	presets: [
 		'@babel/preset-env',

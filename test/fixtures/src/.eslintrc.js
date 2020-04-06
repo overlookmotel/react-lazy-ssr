@@ -1,3 +1,10 @@
+/* --------------------
+ * react-lazy-ssr module
+ * ESLint config
+ * ------------------*/
+
+// Exports
+
 module.exports = {
 	env: {
 		browser: true
