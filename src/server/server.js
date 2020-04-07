@@ -9,9 +9,9 @@ import {NO_SSR, ON_MOUNT} from 'react-async-ssr/symbols';
 import {isString, isArray} from 'is-it-type';
 
 // Imports
-import ServerContext from './context.js';
-import load from './load.js';
-import {CHUNKS_REQUIRED, FILES_REQUIRED, FILES_READY, NOT_LOADED, LOADING} from './constants.js';
+import ServerContext from '../shared/context.js';
+import load from '../shared/load.js';
+import {CHUNKS_REQUIRED, FILES_REQUIRED, FILES_READY, NOT_LOADED, LOADING} from '../shared/constants.js';
 
 // Exports
 

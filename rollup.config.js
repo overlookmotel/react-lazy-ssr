@@ -40,7 +40,9 @@ function createConfig(format, env) {
 		isEsm = format === 'esm';
 
 	return {
-		input: isUmd ? 'src/index.js' : ['src/index.js', 'src/server.js', 'src/babel.js', 'src/webpack.js'],
+		input: isUmd
+			? 'src/client/index.js'
+			: ['src/client/index.js', 'src/server/server.js', 'src/server/babel.js', 'src/server/webpack.js'],
 		output: {
 			dir: `dist/${format}`,
 			entryFileNames: isProduction ? '[name].min.js' : '[name].js',
