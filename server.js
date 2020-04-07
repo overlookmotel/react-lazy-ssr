@@ -1,10 +1,17 @@
 /* --------------------
  * react-lazy-ssr module
- * Server entry point
+ * CJS server entry point
+ * Export dev or prod build based on NODE_ENV.
  * ------------------*/
+
+/* eslint-disable global-require */
 
 'use strict';
 
 // Exports
 
-module.exports = require('./lib/server.js');
+if (process.env.NODE_ENV === 'production') {
+	module.exports = require('./dist/cjs/server.min.js');
+} else {
+	module.exports = require('./dist/cjs/server.js');
+}

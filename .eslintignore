@@ -1,6 +1,5 @@
 !.*
 dist
-lib
 example/build
 test/fixtures/build
 test/fixtures/temp

@@ -18,7 +18,7 @@ module.exports = {
 	overrides: [
 		// ES modules files
 		{
-			files: ['./rollup.config.js', './src/**'],
+			files: ['./src/**'],
 			parserOptions: {
 				sourceType: 'module'
 			},
@@ -33,6 +33,18 @@ module.exports = {
 			rules: {
 				'import/no-unresolved': ['off'],
 				'node/no-missing-require': ['off']
+			}
+		},
+		{
+			files: ['./es/*.js'],
+			parserOptions: {
+				sourceType: 'module'
+			},
+			rules: {
+				'node/no-unsupported-features/es-syntax': ['error', {ignores: ['modules']}],
+				'node/no-missing-import': 'off',
+				'node/no-unpublished-import': 'off',
+				'import/no-unresolved': 'off'
 			}
 		},
 		// Example src React + ES modules

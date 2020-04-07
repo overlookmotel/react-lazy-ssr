@@ -82,7 +82,7 @@ for (const fixtureName of fixtureNames) {
 		resolve: {
 			alias: {
 				'react-lazy-ssr': pathJoin(
-					__dirname, '..', '..', 'dist', isProduction ? 'lazy.min.js' : 'lazy.js'
+					__dirname, '..', '..', 'dist', 'cjs', isProduction ? 'index.min.js' : 'index.js'
 				)
 			}
 		},

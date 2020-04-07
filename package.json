@@ -3,7 +3,30 @@
   "version": "0.2.4",
   "description": "React.lazy substitute which works with server-side rendering",
   "main": "index.js",
-  "browser": "dist/lazy.min.js",
+  "browser": "es/index.js",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./index.js"
+    },
+    "./babel": {
+      "import": "./es/babel.js",
+      "require": "./babel.js"
+    },
+    "./server": {
+      "import": "./es/server.js",
+      "require": "./server.js"
+    },
+    "./webpack": {
+      "import": "./es/webpack.js",
+      "require": "./webpack.js"
+    },
+    "./es": "./es/index.js",
+    "./es/babel": "./es/babel.js",
+    "./es/server": "./es/server.js",
+    "./es/webpack": "./es/webpack.js"
+  },
+  "sideEffects": false,
   "author": {
     "name": "Overlook Motel"
   },
@@ -25,12 +48,16 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
     "@overlookmotel/eslint-config": "^7.1.2",
     "@overlookmotel/eslint-config-jest": "^4.0.1",
     "@overlookmotel/eslint-config-node": "^2.0.0",
     "@overlookmotel/eslint-config-react": "^7.0.0",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@rollup/plugin-replace": "^2.3.1",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^25.2.6",
     "babel-loader": "^8.1.0",
@@ -53,9 +80,7 @@
     "react-dom": "~16.9.0",
     "rollup": "^2.3.3",
     "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-terser": "^5.3.0",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
@@ -69,7 +94,7 @@
     "render"
   ],
   "scripts": {
-    "build": "rm -rf ./dist ./lib && rollup -c",
+    "build": "rm -rf ./dist && rollup -c",
     "prepublishOnly": "npm run build",
     "test": "npm run lint && npm run build && npm run test-build && npm run test-main",
     "lint": "eslint '*.{js,jsx}' '.*.{js,jsx}' '**/*.{js,jsx}' '**/.*.{js,jsx}'",
