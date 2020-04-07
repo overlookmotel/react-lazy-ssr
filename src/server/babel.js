@@ -8,6 +8,7 @@ import {join as pathJoin, relative as pathRelative, extname as pathExtname} from
 import {isString, isArray} from 'is-it-type';
 import vm from 'vm';
 import syntaxDynamicImport from '@babel/plugin-syntax-dynamic-import';
+import invariant from 'tiny-invariant';
 
 // Imports
 import {getNoSsrOption} from '../shared/utils.js';
@@ -19,9 +20,10 @@ export default function babelPlugin(api, options) {
 
 	// Conform options
 	const {rootPath} = options;
-	if (rootPath != null && !isString(rootPath)) {
-		throw new Error(`\`rootPath\` option must be a string if provided, but received ${rootPath}`);
-	}
+	invariant(
+		rootPath == null || isString(rootPath),
+		`\`rootPath\` option must be a string if provided, but received ${rootPath}`
+	);
 
 	let {exts} = options;
 	if (exts == null) {
@@ -29,8 +31,11 @@ export default function babelPlugin(api, options) {
 		exts = ['js', 'jsx', 'mjs', 'cjs'];
 	} else if (isString(exts)) {
 		exts = [exts];
-	} else if (!isArray(exts) || !exts.every(isString)) {
-		throw new Error(`\`exts\` option must be a string or array of strings if provided, but received ${exts}`);
+	} else {
+		invariant(
+			isArray(exts) && exts.every(isString),
+			`\`exts\` option must be a string or array of strings if provided, but received ${exts}`
+		);
 	}
 
 	// Return plugin
@@ -48,9 +53,10 @@ function transformImport(lazyPath, state, rootPath, exts, t) {
 
 	// Get loader function
 	const fnPath = lazyPath.get('arguments.0');
-	if (!fnPath || (!fnPath.isFunctionExpression() && !fnPath.isArrowFunctionExpression())) {
-		throw new Error('`lazy()` 1st argument must be a loader function');
-	}
+	invariant(
+		fnPath && (fnPath.isFunctionExpression() || fnPath.isArrowFunctionExpression()),
+		'`lazy()` 1st argument must be a loader function'
+	);
 
 	// Find `import()` statement in loader function
 	const importPaths = [];
@@ -60,47 +66,37 @@ function transformImport(lazyPath, state, rootPath, exts, t) {
 		}
 	});
 
-	if (importPaths.length !== 1) {
-		throw new Error('`lazy()` loader function must contain one `import()` statement');
-	}
+	invariant(importPaths.length === 1, '`lazy()` loader function must contain one `import()` statement');
 
 	// Check `import()` called with string literal
 	const importPath = importPaths[0].parentPath;
-	if (importPath.node.arguments.length !== 1) {
-		throw new Error('`import()` must be called with one argument only');
-	}
+	invariant(importPath.node.arguments.length === 1, '`import()` must be called with one argument only');
 
 	const urlPath = importPath.get('arguments.0');
-	if (!urlPath.isStringLiteral()) throw new Error('`import()` path must be a string literal');
+	invariant(urlPath.isStringLiteral(), '`import()` path must be a string literal');
 
 	// Read or create options object
 	const options = {};
 	let optionsPath;
 	if (lazyPath.node.arguments.length > 1) {
 		optionsPath = lazyPath.get('arguments.1');
-		if (!optionsPath.isObjectExpression()) {
-			throw new Error('`lazy()` options must be an object literal');
-		}
+		invariant(optionsPath.isObjectExpression(), '`lazy()` options must be an object literal');
 
 		for (let i = 0; i < optionsPath.node.properties.length; i++) {
 			const propPath = optionsPath.get(`properties.${i}`);
 
 			const keyPath = propPath.get('key');
-			if (!keyPath.isIdentifier()) {
-				throw new Error('`lazy()` options object must contain only identified keys');
-			}
+			invariant(keyPath.isIdentifier(), '`lazy()` options object must contain only identified keys');
 			const key = keyPath.node.name;
 
 			const valuePath = propPath.get('value');
 			if (key === 'chunkName') {
-				if (!valuePath.isStringLiteral()) {
-					throw new Error('`chunkName` option must be a string literal if defined');
-				}
+				invariant(valuePath.isStringLiteral(), '`chunkName` option must be a string literal if defined');
 				options.chunkName = valuePath.node.value;
 			} else if (key === 'ssr' || key === 'noSsr') {
-				if (!valuePath.isBooleanLiteral()) {
-					throw new Error(`\`${key}\` option must be a boolean literal if defined`);
-				}
+				invariant(
+					valuePath.isBooleanLiteral(), `\`${key}\` option must be a boolean literal if defined`
+				);
 				options[key] = valuePath.node.value;
 			}
 		}
@@ -135,9 +131,10 @@ function transformImport(lazyPath, state, rootPath, exts, t) {
 
 	// If no chunk name comment, insert comment
 	if (chunkName) {
-		if (options.chunkName && options.chunkName !== chunkName) {
-			throw new Error(`Chunk name defined in \`webpackChunkName\` comment and \`lazy()\` options do not match - '${chunkName}' vs '${options.chunkName}'`);
-		}
+		invariant(
+			!options.chunkName || options.chunkName === chunkName,
+			`Chunk name defined in \`webpackChunkName\` comment and \`lazy()\` options do not match - '${chunkName}' vs '${options.chunkName}'`
+		);
 	} else {
 		// Use chunk name from options
 		chunkName = options.chunkName;

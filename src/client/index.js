@@ -8,6 +8,7 @@
 // Modules
 import {createElement, useContext} from 'react';
 import {isFunction} from 'is-it-type';
+import invariant from 'tiny-invariant';
 
 // Imports
 import preloadAll from './preloadAll.js';
@@ -22,15 +23,13 @@ const IS_NODE = typeof window === 'undefined';
 
 export default function lazy(loader, options) {
 	// Conform inputs
-	if (!isFunction(loader)) throw new Error('Loader function must be provided');
+	invariant(isFunction(loader), 'Loader function must be provided');
 
 	options = {...options};
 	const noSsr = getNoSsrOption(options);
 
 	const {chunkName} = options;
-	if (IS_NODE && !noSsr && !chunkName) {
-		throw new Error('`chunkName` option must be provided on server side');
-	}
+	invariant(!IS_NODE || noSsr || chunkName, '`chunkName` option must be provided on server side');
 
 	// Init state for client
 	const clientState = {
@@ -43,7 +42,7 @@ export default function lazy(loader, options) {
 		let context, state;
 		if (IS_NODE) {
 			context = useContext(ServerContext);
-			if (!context) throw new Error('Must use `ChunkExtractor` on server side');
+			invariant(context, 'Must use `ChunkExtractor` on server side');
 			state = context.getState(LazyComponent);
 		} else {
 			state = clientState;

@@ -7,6 +7,7 @@
 import {createElement} from 'react';
 import {NO_SSR, ON_MOUNT} from 'react-async-ssr/symbols';
 import {isString, isArray} from 'is-it-type';
+import invariant from 'tiny-invariant';
 
 // Imports
 import ServerContext from '../shared/context.js';
@@ -18,10 +19,10 @@ import {CHUNKS_REQUIRED, FILES_REQUIRED, FILES_READY, NOT_LOADED, LOADING} from 
 export class ChunkExtractor {
 	constructor(options) {
 		// Conform options
-		if (!options) throw new Error('ChunkExtractor must be called with options object');
+		invariant(options, 'ChunkExtractor must be called with options object');
 
 		const {stats} = options;
-		if (!stats) throw new Error('ChunkExtractor must be provided stats object');
+		invariant(stats, 'ChunkExtractor must be provided stats object');
 		this._publicPath = stats.publicPath;
 		this._chunkFiles = stats.chunks;
 
@@ -31,8 +32,11 @@ export class ChunkExtractor {
 			entryPoints = ['main'];
 		} else if (isString(entryPoints)) {
 			entryPoints = [entryPoints];
-		} else if (!isArray(entryPoints) || !entryPoints.every(isString)) {
-			throw new Error('ChunkExtractor `entryPoint` option must be a string or array of strings if provided');
+		} else {
+			invariant(
+				isArray(entryPoints) && entryPoints.every(isString),
+				'ChunkExtractor `entryPoint` option must be a string or array of strings if provided'
+			);
 		}
 		this._entryPoints = entryPoints;
 
