@@ -7,12 +7,13 @@
 
 // Modules
 import {createElement, useContext} from 'react';
+import {isFunction} from 'is-it-type';
 
 // Imports
 import preloadAll from './preloadAll.js';
 import ServerContext from '../shared/context.js';
 import load from '../shared/load.js';
-import {isFunction, getNoSsrOption} from '../shared/utils.js';
+import {getNoSsrOption} from '../shared/utils.js';
 import {CHUNKS_READY, NOT_LOADED, LOADED, ERRORED} from '../shared/constants.js';
 
 const IS_NODE = typeof window === 'undefined';
