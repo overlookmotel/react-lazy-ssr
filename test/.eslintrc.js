@@ -27,6 +27,7 @@ module.exports = {
 				'.eslintrc.js',
 				'fixtures/webpack.config.js',
 				'index.test.js',
+				'babel.test.js',
 				'support/**'
 			],
 			parserOptions: {

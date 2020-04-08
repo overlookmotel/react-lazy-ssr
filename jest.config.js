@@ -17,5 +17,6 @@ module.exports = {
 		'!**/node_modules/**',
 		'!test/**',
 		'!jest.config.js'
-	]
+	],
+	setupFilesAfterEnv: ['jest-extended']
 };
