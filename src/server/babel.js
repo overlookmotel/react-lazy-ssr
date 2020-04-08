@@ -3,6 +3,12 @@
  * Babel plugin
  * ------------------*/
 
+// NB Be careful not to change any vars to be called `path`.
+// Due to a bug in terser, this results in variable naming collisions
+// with the var `path` in top level scope representing the `path` module
+// leading to errors in production build.
+// https://github.com/terser/terser/issues/639
+
 // Modules
 import {join as pathJoin, relative as pathRelative, extname as pathExtname} from 'path';
 import {isString, isArray} from 'is-it-type';
@@ -42,7 +48,7 @@ export default function babelPlugin(api, options) {
 	return {
 		inherits: syntaxDynamicImport,
 		visitor: {
-			CallExpression: (path, state) => transformImport(path, state, rootPath, exts, types)
+			CallExpression: (lazyPath, state) => transformImport(lazyPath, state, rootPath, exts, types)
 		}
 	};
 }
@@ -61,8 +67,8 @@ function transformImport(lazyPath, state, rootPath, exts, t) {
 	// Find `import()` statement in loader function
 	const importPaths = [];
 	fnPath.traverse({
-		Import(path) {
-			if (isWithin(path, fnPath)) importPaths.push(path);
+		Import(importPath) {
+			if (isWithin(importPath, fnPath)) importPaths.push(importPath);
 		}
 	});
 
@@ -174,23 +180,23 @@ const PATH_REGEXP = /^[./]+/,
 	WEBPACK_PATH_NAME_NORMALIZE_REPLACE_REGEX = /[^a-zA-Z0-9_!§$()=\-^°]+/g,
 	WEBPACK_MATCH_PADDED_HYPHENS_REPLACE_REGEX = /^-|-$/g;
 
-function importPathToChunkName(path, rootPath, exts, state) {
+function importPathToChunkName(importPath, rootPath, exts, state) {
 	// If `rootPath` option provided, resolve path relative to root
 	if (rootPath != null) {
-		path = pathJoin(state.file.opts.filename, '..', path);
-		path = pathRelative(rootPath, path);
+		importPath = pathJoin(state.file.opts.filename, '..', importPath);
+		importPath = pathRelative(rootPath, importPath);
 	}
 
 	// Strip file extensions off path, according to `exts` option
-	const ext = pathExtname(path);
+	const ext = pathExtname(importPath);
 	if (ext === '.') {
-		path = path.slice(0, -1);
+		importPath = importPath.slice(0, -1);
 	} else if (exts.includes(ext.slice(1))) {
-		path = path.slice(0, -ext.length);
+		importPath = importPath.slice(0, -ext.length);
 	}
 
 	// Convert path to chunk name
-	return path.replace(PATH_REGEXP, '')
+	return importPath.replace(PATH_REGEXP, '')
 		.replace(WEBPACK_PATH_NAME_NORMALIZE_REPLACE_REGEX, '-')
 		.replace(WEBPACK_MATCH_PADDED_HYPHENS_REPLACE_REGEX, '');
 }
