@@ -11,19 +11,18 @@ const pathJoin = require('path').join,
 
 // Build
 
-// Empty temp folder
 const fixturesPath = pathJoin(__dirname, '..', 'fixtures'),
 	srcPath = pathJoin(fixturesPath, 'src'),
-	tempPath = pathJoin(fixturesPath, 'temp');
+	tempPath = pathJoin(fixturesPath, 'temp'),
+	clientPath = pathJoin(srcPath, 'client.jsx');
 
+// Empty temp folder
 fs.removeSync(tempPath);
 fs.mkdirSync(tempPath);
 
 // Copy fixtures to temp folder, adding `client.jsx` to each
 const fixtureNames = fs.readdirSync(srcPath)
 	.filter(filename => fs.statSync(pathJoin(srcPath, filename)).isDirectory());
-
-const clientPath = pathJoin(srcPath, 'client.jsx');
 
 for (const fixtureName of fixtureNames) {
 	const fixturePath = pathJoin(tempPath, fixtureName);
