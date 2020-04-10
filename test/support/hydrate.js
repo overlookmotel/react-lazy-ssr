@@ -4,14 +4,11 @@
  * Client-side hydration
  * ------------------*/
 
-'use strict';
-
 // Modules
-const pathJoin = require('path').join,
-	util = require('util'),
-	{JSDOM, ResourceLoader, VirtualConsole} = require('jsdom'),
-	// cheerio = require('cheerio'),
-	fs = require('fs-extra');
+import {join as pathJoin} from 'path';
+import {format as printf} from 'util';
+import {JSDOM, ResourceLoader, VirtualConsole} from 'jsdom';
+import {readFile} from 'fs-extra';
 
 // Imports
 const {removeLineStartSpacing, defer} = require('./utils.js');
@@ -30,7 +27,7 @@ class ScriptLoader extends ResourceLoader {
 	fetch(url) {
 		const filePath = url.slice(26); // Remove 'http://example.org/static/'
 		this.loadedFiles.push(filePath);
-		return fs.readFile(pathJoin(this.scriptPath, filePath));
+		return readFile(pathJoin(this.scriptPath, filePath));
 	}
 }
 
@@ -51,7 +48,7 @@ async function hydrate({html, headHtml, footHtml, scriptPath}) {
 	for (const method of ['log', 'error', 'warn', 'info', 'debug', 'trace', 'dir', 'dirxml']) {
 		virtualConsole.on(
 			method, (message, ...args) => {
-				consoleOutput.push([method, util.format(message, ...args)]);
+				consoleOutput.push([method, printf(message, ...args)]);
 			}
 		);
 	}

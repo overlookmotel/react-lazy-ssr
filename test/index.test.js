@@ -3,22 +3,19 @@
  * Tests
  * ------------------*/
 
-/* eslint-disable global-require */
-
-'use strict';
-
 // Modules
-const pathJoin = require('path').join,
-	React = require('react'),
-	{renderToStringAsync} = require('react-async-ssr'),
-	{ChunkExtractor} = require('../server.js'); // require('react-lazy-ssr/server');
+import {join as pathJoin} from 'path';
+import React from 'react';
+import {renderToStringAsync} from 'react-async-ssr';
+// eslint-disable-next-line node/no-missing-import
+import {ChunkExtractor} from 'react-lazy-ssr/server';
 
 // Imports
-const {removeSpacing, removeLineStartSpacing} = require('./support/utils.js'),
-	hydrate = require('./support/hydrate.js');
+import {removeSpacing, removeLineStartSpacing} from './support/utils.js';
+import hydrate from './support/hydrate.js';
 
 // Init
-require('./support/index.js');
+import './support/index.js';
 
 // Tests
 
@@ -227,7 +224,7 @@ function getFixturePath(name) {
 function getRequireFixture(fixturePath) {
 	return function(path) {
 		path = pathJoin(fixturePath, path);
-		return require(path); // eslint-disable-line import/no-dynamic-require
+		return require(path); // eslint-disable-line import/no-dynamic-require, global-require
 	};
 }
 

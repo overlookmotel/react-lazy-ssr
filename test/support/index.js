@@ -3,8 +3,6 @@
  * Tests set-up
  * ------------------*/
 
-'use strict';
-
 /*
  * Throw any unhandled promise rejections
  */

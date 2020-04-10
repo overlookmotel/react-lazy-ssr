@@ -5,14 +5,13 @@
 
 /* eslint-disable jest/no-standalone-expect */
 
-'use strict';
-
 // Modules
-const createPluginTester = require('babel-test').create;
-const babelPlugin = require('../babel.js'); // require('react-lazy-ssr/babel');
+import {create as createPluginTester} from 'babel-test';
+// eslint-disable-next-line node/no-missing-import
+import babelPlugin from 'react-lazy-ssr/babel';
 
 // Init
-require('./support');
+import './support/index.js';
 
 // Create `itTransforms()` test function
 const babelTest = createPluginTester({plugins: [babelPlugin]}).test;
