@@ -42,7 +42,8 @@
     "is-it-type": "^3.1.1",
     "lodash": "^4.17.15",
     "react-async-ssr": "^0.7.1",
-    "tiny-invariant": "^1.1.0"
+    "tiny-invariant": "^1.1.0",
+    "tiny-warning": "^1.0.3"
   },
   "peerDependencies": {
     "react": "16.8.0 - 16.9.x"

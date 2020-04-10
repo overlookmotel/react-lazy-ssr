@@ -84,4 +84,4 @@ export default function lazy(loader, options) {
 	return LazyComponent;
 }
 
-lazy.preloadAll = preloadAll;
+export {preloadAll};

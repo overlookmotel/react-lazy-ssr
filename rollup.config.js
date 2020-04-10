@@ -40,9 +40,12 @@ function createConfig(format, env) {
 		isEsm = format === 'esm';
 
 	return {
-		input: isUmd
-			? 'src/client/index.js'
-			: ['src/client/index.js', 'src/server/server.js', 'src/server/babel.js', 'src/server/webpack.js'],
+		// For UMD, build only client-side code.
+		// Build from CJS/ESM entry points to handle export of `preloadAll` correctly.
+		input: [
+			isEsm ? 'src/client/esm/index.js' : 'src/client/cjs/index.js',
+			...(isUmd ? [] : ['src/server/server.js', 'src/server/babel.js', 'src/server/webpack.js'])
+		],
 		output: {
 			dir: `dist/${format}`,
 			entryFileNames: isProduction ? '[name].min.js' : '[name].js',

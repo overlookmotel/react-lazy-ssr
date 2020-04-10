@@ -5,9 +5,10 @@
  * ------------------*/
 
 // Imports
-import lazyProd from '../dist/esm/index.min.js';
-import lazyDev from '../dist/esm/index.js';
+import lazyProd, {preloadAll as preloadAllProd} from '../dist/esm/index.min.js';
+import lazyDev, {preloadAll as preloadAllDev} from '../dist/esm/index.js';
 
 // Exports
 
 export default process.env.NODE_ENV === 'production' ? lazyProd : lazyDev;
+export const preloadAll = process.env.NODE_ENV === 'production' ? preloadAllProd : preloadAllDev;

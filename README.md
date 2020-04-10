@@ -179,9 +179,9 @@ ReactDOM.hydrate(
 use:
 
 ```jsx
-import lazy from 'react-lazy-ssr';
+import {preloadAll} from 'react-lazy-ssr';
 
-lazy.preloadAll().then( () => {
+preloadAll().then( () => {
   ReactDOM.hydrate(
     <App />,
     document.getElementById('app')

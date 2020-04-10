@@ -6,13 +6,13 @@
 // Modules
 import React from 'react';
 import ReactDOM from 'react-dom';
-import lazy from 'react-lazy-ssr';
+import {preloadAll} from 'react-lazy-ssr';
 
 // Import app
 import App from './App.jsx';
 
 // Hydrate app
-lazy.preloadAll().then(() => {
+preloadAll().then(() => {
 	if (window._preloaded) window._preloaded();
 
 	const root = document.getElementById('app');

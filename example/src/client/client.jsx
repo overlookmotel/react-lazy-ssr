@@ -7,13 +7,13 @@
 // Modules
 import React from 'react';
 import ReactDOM from 'react-dom';
-import lazy from 'react-lazy-ssr';
+import {preloadAll} from 'react-lazy-ssr';
 
 // Imports
 import App from './App.jsx';
 
 // Hydrate app
-lazy.preloadAll().then(() => {
+preloadAll().then(() => {
 	ReactDOM.hydrate(
 		<App />,
 		document.getElementById('app')
