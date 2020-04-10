@@ -26,6 +26,15 @@ module.exports = {
 				'node/no-unsupported-features/es-syntax': ['error', {ignores: ['modules']}]
 			}
 		},
+		{
+			files: ['./src/.babelrc.js'],
+			parserOptions: {
+				sourceType: 'script'
+			},
+			rules: {
+				'node/no-unsupported-features/es-syntax': 'error'
+			}
+		},
 		// Suppress errors where require build artefacts
 		// or dependencies defined in `example/package.json`
 		{
