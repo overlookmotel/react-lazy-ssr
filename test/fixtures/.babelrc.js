@@ -9,6 +9,7 @@
 // Exports
 
 module.exports = {
+	exclude: 'build',
 	presets: [
 		'@babel/preset-env',
 		'@babel/preset-react'

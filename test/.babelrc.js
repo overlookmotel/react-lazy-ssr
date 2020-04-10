@@ -8,7 +8,9 @@
 // Exports
 
 module.exports = {
+	exclude: 'fixtures',
 	presets: [
+		// Compile for current Node version
 		['@babel/preset-env', {targets: {node: 'current'}}],
 		'@babel/preset-react'
 	]
