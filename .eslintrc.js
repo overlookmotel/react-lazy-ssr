@@ -72,6 +72,7 @@ module.exports = {
 		}
 	],
 	globals: {
-		BROWSER: 'readonly'
+		BROWSER: 'readonly',
+		__DEV__: true
 	}
 };
