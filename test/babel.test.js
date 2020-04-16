@@ -7,7 +7,6 @@
 
 // Modules
 import {create as createPluginTester} from 'babel-test';
-// eslint-disable-next-line node/no-missing-import
 import babelPlugin from 'react-lazy-ssr/babel';
 
 // Init

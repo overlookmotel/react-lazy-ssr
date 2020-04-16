@@ -9,6 +9,7 @@ import ReactDOM from 'react-dom';
 import {preloadAll} from 'react-lazy-ssr';
 
 // Import app
+// eslint-disable-next-line node/no-missing-import, import/no-unresolved
 import App from './App.jsx';
 
 // Hydrate app

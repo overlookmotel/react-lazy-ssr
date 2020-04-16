@@ -14,7 +14,6 @@ module.exports = {
 		sourceType: 'module'
 	},
 	rules: {
-		'node/no-unsupported-features/es-syntax': ['error', {ignores: ['modules', 'dynamicImport']}],
-		'node/no-missing-import': 'off'
+		'node/no-unsupported-features/es-syntax': ['error', {ignores: ['modules', 'dynamicImport']}]
 	}
 };

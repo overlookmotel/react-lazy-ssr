@@ -13,9 +13,10 @@ module.exports = {
 		'@overlookmotel/eslint-config-react'
 	],
 	rules: {
-		'import/no-unresolved': ['off'],
 		'react/jsx-filename-extension': ['off'],
-		'node/no-unsupported-features/es-syntax': ['error', {ignores: ['modules']}]
+		'node/no-unsupported-features/es-syntax': ['error', {ignores: ['modules']}],
+		'import/no-unresolved': ['error', {ignore: ['^react-lazy-ssr($|/)']}],
+		'node/no-missing-import': ['error', {allowModules: ['react-lazy-ssr']}]
 	},
 	overrides: [
 		{

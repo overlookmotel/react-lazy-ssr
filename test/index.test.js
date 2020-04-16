@@ -7,7 +7,6 @@
 import {join as pathJoin} from 'path';
 import React from 'react';
 import {renderToStringAsync} from 'react-async-ssr';
-// eslint-disable-next-line node/no-missing-import
 import {ChunkExtractor} from 'react-lazy-ssr/server';
 
 // Imports
