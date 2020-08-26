@@ -333,6 +333,23 @@ module.exports = {
 }
 ```
 
+## Jest and Enzyme testing with this library
+
+In order to test code using this library with Jest and Enzyme, you need to mock the library to return
+a standard lazy promise. Enzyme doesn't understand how to handle the component returned by this library.
+
+You can bypass this by adding the following to your `jestsetup.js`
+
+```
+// Convert react-lazy-ssr to regular lazy for enzyme to be able to handle it
+jest.mock('react-lazy-ssr', () => {
+  return jest.fn().mockImplementation((load, config) => {
+    const lazy = require('react').lazy;
+    return lazy(load);
+  });
+});
+```
+
 ## Tests
 
 Use `npm test` to run the tests. Use `npm run cover` to check coverage.
